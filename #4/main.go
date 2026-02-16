@@ -82,5 +82,5 @@ func main() {
 	}
 
 	var cena_zamowienia float64
-	kutas
+
 }
