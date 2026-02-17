@@ -20,7 +20,7 @@ func main() {
 		"Grecka":      26.0,
 	}
 
-	wybor_pizzy := []string{"Pepperoni", "Margherita", "Hawajska", "Cztery sery", "Kaprys", "Romana", "Weganska", "Salami", "Meksykanska", "Grecka"}
+	wybor_pizzy := []string{"Pepperoni", "Margherita", "Hawajska", "Cztery-Sery", "Kaprys", "Romana", "Weganska", "Salami", "Meksykanska", "Grecka"}
 
 	fmt.Println("Menu:")
 	fmt.Println("wybor pizzy: ", wybor_pizzy)
@@ -56,31 +56,43 @@ func main() {
 		"Nestea":   5.0,
 		"Red Bull": 10.0,
 	}
-
-	wybor_napojow := []string{"Woda", "Sok", "Cola", "Fanta", "Sprite", "Pepsi", "7up", "Lipton", "Nestea", "Red Bull"}
-	fmt.Println("Proponuje napoj")
-	fmt.Println("wybor napojow: ", wybor_napojow)
 	var napoj string
-	fmt.Println("Podaj nazwe napoju ktory chcesz zamowic:")
-	fmt.Scanln(&napoj)
-	for {
-		znaleziono = false
-		for _, napoj_w_menu := range wybor_napojow {
-			if napoj_w_menu == napoj {
-				znaleziono = true
-			}
-		}
-		if znaleziono {
-			break
-		} else {
-			fmt.Println("Nie mamy takiego napoju")
-			fmt.Println("Podaj ponownie nazwe napoju ktory chcesz zamowic:")
-			fmt.Scanln(&napoj)
+	wybor_napojow := []string{"Woda", "Sok", "Cola", "Fanta", "Sprite", "Pepsi", "7up", "Lipton", "Nestea", "Red Bull"}
+	fmt.Println("Dodatkowo do pizzy mozesz zamowic napoj?")
+	fmt.Println("Tak/Nie")
+	var odpowiedz string
+	fmt.Scanln(&odpowiedz)
+
+	if odpowiedz == "Nie" {
+		napoj = "Brak napoju"
+	} else if odpowiedz == "Tak" {
+		fmt.Println("Proponuje napoj")
+		fmt.Println("wybor napojow: ", wybor_napojow)
+		fmt.Println("Podaj nazwe napoju ktory chcesz zamowic:")
+		fmt.Scanln(&napoj)
+		for {
 			znaleziono = false
+			for _, napoj_w_menu := range wybor_napojow {
+				if napoj_w_menu == napoj {
+					znaleziono = true
+				}
+			}
+			if znaleziono {
+				break
+			} else {
+				fmt.Println("Nie mamy takiego napoju")
+				fmt.Println("Podaj ponownie nazwe napoju ktory chcesz zamowic:")
+				fmt.Scanln(&napoj)
+				znaleziono = false
+			}
+
 		}
-
 	}
-
 	var cena_zamowienia float64
-
+	cena_zamowienia = cenaPizzy[zamowienie] + cenanapoju[napoj]
+	if cena_zamowienia > 30.0 {
+		fmt.Println("Zamowienie powyzej 30zl, otrzymujesz rabat 10%")
+		cena_zamowienia = cena_zamowienia * 0.9
+	}
+	fmt.Printf("Cena zamowienia: %.2f\n", cena_zamowienia)
 }
