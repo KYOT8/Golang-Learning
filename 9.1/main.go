@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 // Testy wycinkow, czyli slice'ow, czyli dynamicznych tablic,
@@ -15,5 +16,27 @@ func main() {
 
 	fmt.Printf("Listy gpu NVIDA: %v\n", listagpuNVIDA)
 	fmt.Printf("Listy gpu AMD: %v\n", listagpuAMD)
+
+	var zarobki = make([]int, 12)
+
+	zarobki[0] = 30200
+	zarobki[1] = 40300
+	zarobki[2] = 54000
+	zarobki[3] = 603400
+	zarobki[4] = 703300
+	zarobki[5] = 80030
+	zarobki[6] = 90300
+	zarobki[7] = 103000
+	zarobki[8] = 1334000
+	zarobki[9] = 1000
+	zarobki[10] = 13000
+	zarobki[11] = 140300
+
+	fmt.Printf("Zarobki: %v\n", zarobki)
+	sort.Ints(zarobki) //sortujemy slice zarobki w porzadku rosnacym, funkcja sort.Ints sortuje slice typu int
+	fmt.Printf("Zarobki posortowane od najmniejszych do najwiekszych: %v\n", zarobki)
+
+	sort.Sort(sort.Reverse(sort.IntSlice(zarobki))) //sortujemy slice zarobki w porzadku malejacym, funkcja sort.Reverse sortuje slice w odwrotnym porzadku, a sort.IntSlice zamienia slice typu int na slice typu sort.IntSlice, ktory jest wymagany przez funkcje sort.Reverse
+	fmt.Printf("Zarobki posortowane od najwiekszych do najmniejszych: %v\n", zarobki)
 
 }
