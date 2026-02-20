@@ -39,4 +39,6 @@ func main() {
 	sort.Sort(sort.Reverse(sort.IntSlice(zarobki))) //sortujemy slice zarobki w porzadku malejacym, funkcja sort.Reverse sortuje slice w odwrotnym porzadku, a sort.IntSlice zamienia slice typu int na slice typu sort.IntSlice, ktory jest wymagany przez funkcje sort.Reverse
 	fmt.Printf("Zarobki posortowane od najwiekszych do najmniejszych: %v\n", zarobki)
 
+	var zarobki2 = []int{30200, 40300, 54000, 603400, 703300, 80030, 90300, 103000, 1334000, 1000, 13000, 140300} //mozemy tez od razu zainicjalizowac slice zarobki2 bez podawania jego rozmiaru, wtedy rozmiar zostanie automatycznie dopasowany do ilosci elementow w nawiasach klamrowych
+	fmt.Printf("Zarobki2: %v\n", zarobki2)
 }
