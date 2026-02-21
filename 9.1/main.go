@@ -43,4 +43,8 @@ func main() {
 
 	var zarobki2 = []int{30200, 40300, 54000, 603400, 703300, 80030, 90300, 103000, 1334000, 1000, 13000, 140300} //mozemy tez od razu zainicjalizowac slice zarobki2 bez podawania jego rozmiaru, wtedy rozmiar zostanie automatycznie dopasowany do ilosci elementow w nawiasach klamrowych
 	fmt.Printf("Zarobki2: %v\n", zarobki2)
+
+	var cpu = []string{"Intel Core i3 10100F", "Intel Core i5 10400F", "Intel Core i7 10700K", "Intel Core i9 10900K", "AMD Ryzen 3 3100", "AMD Ryzen 5 3600", "AMD Ryzen 7 3700X", "AMD Ryzen 9 3900X"}
+	fmt.Printf("CPU: %v\n", cpu)
+
 }
